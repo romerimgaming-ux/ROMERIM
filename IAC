@@ -1,0 +1,27 @@
+#include <iostream>
+#include <windows.h>
+#include <string>
+
+// Function to get the player's head position from the offset
+int getHeadPosition() {
+    // Assuming the offset is 0x6A0 and the value is a 4-byte integer
+    int headOffset = 0x6A0;
+    int headPosition = *(int*)(((char*)0x100000000) + headOffset); // Example address, adjust as needed
+    return headPosition;
+}
+
+// Function to simulate mouse movement to the head position
+void simulateMouseMovement(int headPosition) {
+    // Simulate mouse movement to the head position
+    // This is a placeholder for the actual mouse movement logic
+    std::cout << "Moving mouse to: " << headPosition << std::endl;
+}
+
+int main() {
+    while (true) {
+        int headPosition = getHeadPosition();
+        simulateMouseMovement(headPosition);
+        Sleep(10); // Small delay to avoid excessive CPU usage
+    }
+    return 0;
+}
